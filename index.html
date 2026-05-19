@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trade Time With Pranjal</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:
+radial-gradient(circle at top right,#3a2a00 0%,transparent 25%),
+radial-gradient(circle at bottom left,#001d1d 0%,transparent 25%),
+#020617;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-2;
+}
+
+/* GLOW EFFECT */
+
+body::after{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ffd70033,transparent 70%);
+top:-200px;
+right:-200px;
+z-index:-1;
+}
+
+/* HERO SECTION */
+
+.hero{
+text-align:center;
+padding:70px 20px 40px;
+max-width:900px;
+margin:auto;
+}
+
+.status{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:#0f172a;
+padding:10px 20px;
+border-radius:50px;
+margin-bottom:30px;
+border:1px solid #00ff88;
+color:#00ff88;
+font-weight:bold;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#00ff88;
+border-radius:50%;
+box-shadow:0 0 10px #00ff88;
+}
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+border:6px solid #ffd700;
+object-fit:cover;
+box-shadow:
+0 0 20px #ffd70088,
+0 0 60px #ffd70044;
+margin-bottom:30px;
+transition:0.4s;
+}
+
+.profile:hover{
+transform:scale(1.04);
+}
+
+h1{
+font-size:72px;
+font-weight:900;
+line-height:1;
+margin-bottom:25px;
+letter-spacing:-2px;
+text-transform:uppercase;
+}
+
+.gold{
+color:#ffd700;
+text-shadow:
+0 0 10px #ffd70088,
+0 0 25px #ffd70055;
+}
+
+.subtitle{
+font-size:22px;
+color:#cbd5e1;
+margin-bottom:35px;
+line-height:1.6;
+}
+
+.join-text{
+font-size:30px;
+margin-bottom:35px;
+font-weight:800;
+line-height:1.5;
+}
+
+.join-text span{
+color:#ffd700;
+}
+
+/* BUTTON */
+
+.telegram-btn{
+display:inline-block;
+padding:22px 55px;
+background:linear-gradient(135deg,#ffd700,#ffb800);
+color:black;
+font-size:30px;
+font-weight:900;
+border-radius:22px;
+text-decoration:none;
+box-shadow:
+0 0 25px #ffd70088,
+0 0 60px #ffd70044;
+transition:0.35s;
+position:relative;
+overflow:hidden;
+}
+
+.telegram-btn:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:
+0 0 35px #ffd700aa,
+0 0 80px #ffd70066;
+}
+
+/* BADGES */
+
+.badges{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:35px;
+flex-wrap:wrap;
+}
+
+.badge{
+padding:14px 28px;
+background:#081420;
+border:1px solid #00ff88;
+border-radius:50px;
+font-weight:bold;
+color:#00ff88;
+}
+
+/* GRAPH */
+
+.graph{
+width:90%;
+height:180px;
+margin:60px auto;
+position:relative;
+overflow:hidden;
+}
+
+.graph-line{
+position:absolute;
+width:100%;
+height:100%;
+border-bottom:4px solid #00ff88;
+border-radius:50%;
+transform:skewY(-5deg);
+box-shadow:0 0 30px #00ff88;
+}
+
+/* FEATURES */
+
+.section-title{
+text-align:center;
+font-size:34px;
+letter-spacing:6px;
+margin-bottom:50px;
+color:#ffd700;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:0 40px 80px;
+}
+
+.card{
+background:rgba(10,20,40,0.85);
+backdrop-filter:blur(14px);
+padding:35px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.06);
+transition:0.35s;
+box-shadow:
+0 10px 30px rgba(0,0,0,0.35);
+min-height:240px;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#ffd70066;
+box-shadow:
+0 20px 50px rgba(255,215,0,0.12);
+}
+
+.card-icon{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.card h2{
+font-size:34px;
+margin-bottom:18px;
+font-weight:800;
+}
+
+.card p{
+font-size:20px;
+color:#cbd5e1;
+line-height:1.8;
+}
+
+/* TOPICS */
+
+.topics{
+padding:20px 20px 80px;
+text-align:center;
+}
+
+.topic-list{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+margin-top:35px;
+}
+
+.topic{
+padding:14px 28px;
+border:1px solid #ffd70044;
+border-radius:50px;
+background:rgba(255,215,0,0.06);
+color:#ffd700;
+font-weight:700;
+transition:0.3s;
+}
+
+.topic:hover{
+background:#ffd700;
+color:black;
+transform:scale(1.05);
+}
+
+/* DISCLAIMER */
+
+.disclaimer{
+width:90%;
+margin:0 auto 80px;
+padding:28px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.06);
+border-radius:24px;
+text-align:center;
+color:#94a3b8;
+line-height:1.8;
+font-size:16px;
+max-width:900px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+padding-top:50px;
+}
+
+.profile{
+width:140px;
+height:140px;
+}
+
+h1{
+font-size:48px;
+line-height:1.1;
+}
+
+.subtitle{
+font-size:18px;
+padding:0 10px;
+}
+
+.join-text{
+font-size:24px;
+padding:0 10px;
+}
+
+.telegram-btn{
+font-size:22px;
+padding:18px 28px;
+width:88%;
+max-width:320px;
+}
+
+.badges{
+gap:12px;
+}
+
+.badge{
+font-size:13px;
+padding:10px 16px;
+}
+
+.cards{
+padding:0 20px 60px;
+}
+
+.card{
+min-height:auto;
+padding:30px;
+}
+
+.card h2{
+font-size:28px;
+}
+
+.card p{
+font-size:18px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="status">
+<div class="dot"></div>
+CHANNEL LIVE & ACTIVE
+</div>
+
+<br>
+
+<img src="profile.jpg" class="profile">
+
+<h1>
+TRADE TIME WITH<br>
+<span class="gold">PRANJAL</span>
+</h1>
+
+<p class="subtitle">
+Stock Market Analysis • Indian Markets
+</p>
+
+<p class="join-text">
+👇 Abhi Join Karo — <span>Bilkul FREE!</span> 👇
+</p>
+
+<a class="telegram-btn" href="https://t.me/" target="_blank">
+JOIN TELEGRAM
+</a>
+
+<div class="badges">
+
+<div class="badge">
+✓ Free To Join
+</div>
+
+<div class="badge">
+✓ Daily Analysis
+</div>
+
+<div class="badge">
+✓ Free Education
+</div>
+
+</div>
+
+</section>
+
+<div class="graph">
+<div class="graph-line"></div>
+</div>
+
+<h2 class="section-title">
+IS CHANNEL MEIN MILEGA
+</h2>
+
+<section class="cards">
+
+<div class="card">
+<div class="card-icon">📊</div>
+<h2>Market Analysis</h2>
+<p>
+Daily Nifty, BankNifty aur sector breakdown.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🧠</div>
+<h2>Chart Reading</h2>
+<p>
+Technical patterns aur indicators easy language me.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📰</div>
+<h2>Market News</h2>
+<p>
+Important news jo market ko impact kare.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🎓</div>
+<h2>Education</h2>
+<p>
+Beginner se advanced tak simple explanation.
+</p>
+</div>
+
+</section>
+
+<section class="topics">
+
+<h2 class="section-title">
+TOPICS COVERED
+</h2>
+
+<div class="topic-list">
+
+<div class="topic">Equity</div>
+<div class="topic">Swing Trading</div>
+<div class="topic">Options Basics</div>
+<div class="topic">Risk Management</div>
+<div class="topic">IPO</div>
+<div class="topic">Sector Rotation</div>
+<div class="topic">Macro Economy</div>
+<div class="topic">Futures</div>
+
+</div>
+
+</section>
+
+<div class="disclaimer">
+⚠ Disclaimer: Yeh channel sirf educational aur informational purpose ke liye hai. Financial advice nahi hai. Market me investment risk hota hai.
+</div>
+
+</body>
+</html>
