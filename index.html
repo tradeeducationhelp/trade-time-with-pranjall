@@ -159,14 +159,7 @@ body::before {
   margin: 0 auto 30px;
 }
 /* Spinning gold ring border */
-.profile-ring-bg {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: conic-gradient(var(--gold-primary), var(--gold-bright), var(--gold-dim), var(--gold-primary));
-  z-index: 0;
-  animation: spin-ring 5s linear infinite;
-}
+
 /* White mask so only the ring border shows */
 .profile-ring-bg::after {
   content: '';
@@ -256,7 +249,7 @@ body::before {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 }
 .stat-pill {
   background: var(--bg-card);
@@ -623,6 +616,22 @@ body::before {
 }
 
 .cta-wrap { margin-bottom: 12px; }
+.tap-indicator{
+text-align:center;
+font-size:32px;
+margin-top:-25px;
+margin-bottom:16px;
+animation:bounce 1.2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(8px);
+}
+}
 </style>
 </head>
 <body>
@@ -707,6 +716,7 @@ body::before {
 
   <!-- ── TELEGRAM CTA ── -->
   <section class="cta-wrap reveal">
+    <div class="tap-indicator">👇👇</div>
     <!-- ─── TELEGRAM LINK — replace href to update everywhere ─── -->
     <a href="https://t.me/+8RpqREV2uic0NDk1" target="_blank" rel="noopener" class="cta-btn">
       <span class="cta-icon">✈️</span>
@@ -752,7 +762,7 @@ body::before {
       </div>
       <div class="feature-card">
         <span class="feature-icon">⚡</span>
-        <div class="feature-title">Live Alerts</div>
+        <div class="feature-title">Market Updates</div>
         <div class="feature-desc">Real-time market alerts when opportunities arise</div>
       </div>
       <div class="feature-card">
