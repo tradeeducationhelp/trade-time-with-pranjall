@@ -146,10 +146,9 @@ body::before {
   50%      { box-shadow: 0 0 0 5px rgba(46,212,122,0); }
 }
 
-/* ─────────────────────────────────────────────
+/* =============================================
    PROFILE IMAGE RING
-   To replace: change the src on <img id="profileImg">
-   ───────────────────────────────────────────── */
+   ============================================= */
 .profile-ring-wrap {
   position: relative;
   display: flex;
@@ -158,9 +157,7 @@ body::before {
   width: 100%;
   margin: 0 auto 14px;
 }
-/* Spinning gold ring border */
 
-/* White mask so only the ring border shows */
 .profile-ring-bg::after {
   content: '';
   position: absolute;
@@ -171,7 +168,7 @@ body::before {
 @keyframes spin-ring {
   to { transform: rotate(360deg); }
 }
-/* The actual profile photo */
+
 #profileImg {
   position: relative;
   z-index: 1;
@@ -182,7 +179,6 @@ body::before {
   object-fit: cover;
   object-position: center top;
   border: none;
-
   box-shadow:
 0 0 25px rgba(212,160,23,0.45),
 0 0 60px rgba(0,255,170,0.18);
@@ -208,9 +204,6 @@ body::before {
   margin-bottom: 6px;
 }
 
-/* ─────────────────────────────────────────────
-   HERO NAME  — "TRADE TIME" white, "PRANJAL" gold
-   ───────────────────────────────────────────── */
 .hero-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(40px, 11vw, 58px);
@@ -219,7 +212,6 @@ body::before {
   color: var(--text-white);
   margin-bottom: 2px;
 }
-/* "PRANJAL" — glowing gold line */
 .hero-name .name-gold {
   display: block;
   color: var(--gold-bright);
@@ -267,9 +259,8 @@ body::before {
 }
 
 /* =============================================
-   CTA BUTTON  — easy to replace Telegram link
+   CTA BUTTON
    ============================================= */
-/* ─── TELEGRAM LINK — REPLACE href on all .cta-btn elements ─── */
 .cta-btn {
   display: flex;
   align-items: center;
@@ -564,7 +555,7 @@ body::before {
 }
 
 /* =============================================
-   CHART DECORATION (bottom atmosphere)
+   CHART DECORATION
    ============================================= */
 .chart-deco {
   position: relative;
@@ -626,14 +617,11 @@ animation:bounce 1.2s infinite;
 }
 
 @keyframes bounce{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(8px);
-}
+0%,100%{ transform:translateY(0); }
+50%{ transform:translateY(8px); }
 }
 </style>
+
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -643,11 +631,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1428427372655190');
+fbq('init', '1523359249532830');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1428427372655190&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1523359249532830&ev=PageView&noscript=1"
 /></noscript>
 </head>
 <body>
@@ -676,7 +664,6 @@ src="https://www.facebook.com/tr?id=1428427372655190&ev=PageView&noscript=1"
 <div class="page-wrap">
 
   <section class="hero reveal">
-
     <div class="live-badge">
       <span class="live-dot"></span>
       Channel Live &amp; Active
@@ -709,7 +696,6 @@ src="https://www.facebook.com/tr?id=1428427372655190&ev=PageView&noscript=1"
       <div class="stat-pill">🎓 <span class="val">Free</span> Education</div>
       <div class="stat-pill">⚡ <span class="val">Live</span> Alerts</div>
     </div>
-
   </section>
 
   <section class="cta-wrap reveal">
@@ -839,7 +825,8 @@ src="https://www.facebook.com/tr?id=1428427372655190&ev=PageView&noscript=1"
         <li><span class="check-icon">✓</span> Focus on learning, not dependency</li>
       </ul>
 
-      <a href="https://t.me/+8RpqREV2uic0NDk1" target="_blank" rel="noopener" class="cta-btn" onclick="fbq('track', 'Subscribe');">
+      <a href="https://t.me/+8RpqREV2uic0NDk1" target="_blank" rel="noopener" class="cta-btn" 
+         onclick="fbq('track', 'Subscribe');">
         <span class="cta-icon">✈️</span>
         <span class="cta-text">
           <span class="cta-text-main">JOIN FOR FREE</span>
@@ -866,8 +853,9 @@ src="https://www.facebook.com/tr?id=1428427372655190&ev=PageView&noscript=1"
     <strong>⚠️ Disclaimer</strong>
     All content shared on this channel is purely for educational and informational purposes. It does not constitute financial, investment, or trading advice. Trading in stocks and derivatives involves significant risk of loss. Please consult a SEBI-registered investment advisor before making any investment decisions. Past performance is not indicative of future results.
   </div>
+</div>
 
-</div><script>
+<script>
 /* ── Scroll reveal ── */
 const revealEls = document.querySelectorAll('.reveal');
 const observer  = new IntersectionObserver((entries) => {
@@ -890,10 +878,8 @@ function animateCounter(el, target, duration) {
     if (start >= target) clearInterval(timer);
   }, 30);
 }
-// ─── REPLACE the number below with your real member count ───
 const joinCountEl = document.getElementById('joinCount');
 setTimeout(() => animateCounter(joinCountEl, 0, 1200), 600);
-// Example: animateCounter(joinCountEl, 12450, 1200);
 
 /* ── CTA ripple effect ── */
 document.querySelectorAll('.cta-btn').forEach(btn => {
